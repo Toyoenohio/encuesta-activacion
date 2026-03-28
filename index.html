@@ -140,6 +140,16 @@
 
         .success-message p {
             color: #666;
+            margin-bottom: 20px;
+        }
+
+        #resetBtn {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            margin-top: 10px;
+        }
+
+        #resetBtn:hover {
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
         }
 
         .error-message {
@@ -249,6 +259,7 @@
         <div class="success-message" id="successMessage">
             <h2>¡Gracias! 🎉</h2>
             <p>Tu respuesta ha sido registrada exitosamente.</p>
+            <button type="button" id="resetBtn" onclick="resetForm()">Nueva Respuesta</button>
         </div>
     </div>
 
@@ -260,6 +271,16 @@
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
         const submitBtn = document.getElementById('submitBtn');
+
+        function resetForm() {
+            form.reset();
+            successMessage.style.display = 'none';
+            form.style.display = 'block';
+            errorMessage.style.display = 'none';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar Respuesta';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
