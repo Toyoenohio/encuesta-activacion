@@ -1,0 +1,58 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "promotora",
+              "name": "promotora",
+              "value": "={{ $json.body.promotora }}",
+              "type": "string"
+            },
+            {
+              "id": "genero",
+              "name": "genero",
+              "value": "={{ $json.body.genero }}",
+              "type": "string"
+            },
+            {
+              "id": "edad",
+              "name": "edad",
+              "value": "={{ $json.body.edad }}",
+              "type": "string"
+            },
+            {
+              "id": "consume_whisky",
+              "name": "consume_whisky",
+              "value": "={{ $json.body.consume_whisky }}",
+              "type": "string"
+            },
+            {
+              "id": "gusto_old_parr",
+              "name": "gusto_old_parr",
+              "value": "={{ $json.body.gusto_old_parr }}",
+              "type": "string"
+            },
+            {
+              "id": "fecha",
+              "name": "fecha",
+              "value": "={{ $json.body.fecha }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "edit-fields-encuesta",
+      "name": "Extraer Campos Encuesta",
+      "type": "n8n-nodes-base.editFields",
+      "typeVersion": 3.3,
+      "position": [
+        460,
+        340
+      ]
+    }
+  ],
+  "connections": {}
+}
