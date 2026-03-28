@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta Old Parr Tropical</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-option label {
+            display: block;
+            padding: 12px 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+
+        .radio-option label:hover {
+            background: #e8e8e8;
+        }
+
+        .radio-option input[type="radio"]:checked + label:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .success-message h2 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+            color: #666;
+        }
+
+        .error-message {
+            display: none;
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .radio-group {
+                flex-direction: column;
+            }
+
+            .radio-option {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🥃 Old Parr Tropical</h1>
+        <p class="subtitle">Tu opinión nos importa</p>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <form id="surveyForm">
+            <div class="form-group">
+                <label>Género</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="genero" id="genero-hombre" value="Hombre" required>
+                        <label for="genero-hombre">Hombre</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="genero" id="genero-mujer" value="Mujer" required>
+                        <label for="genero-mujer">Mujer</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Edad</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="edad" id="edad-18-25" value="18-25" required>
+                        <label for="edad-18-25">18-25</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="edad" id="edad-26-35" value="26-35" required>
+                        <label for="edad-26-35">26-35</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="edad" id="edad-36-45" value="36-45" required>
+                        <label for="edad-36-45">36-45</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="edad" id="edad-45+" value="45+" required>
+                        <label for="edad-45+">45+</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>¿Consumes Whisky?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="consume_whisky" id="whisky-si" value="Si" required>
+                        <label for="whisky-si">Sí</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="consume_whisky" id="whisky-no" value="No" required>
+                        <label for="whisky-no">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>¿Te gustó Old Parr Tropical?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="gusto_old_parr" id="gusto-si" value="Si" required>
+                        <label for="gusto-si">Sí</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="gusto_old_parr" id="gusto-no" value="No" required>
+                        <label for="gusto-no">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn">Enviar Respuesta</button>
+        </form>
+
+        <div class="success-message" id="successMessage">
+            <h2>¡Gracias! 🎉</h2>
+            <p>Tu respuesta ha sido registrada exitosamente.</p>
+        </div>
+    </div>
+
+    <script>
+        // ⚠️ REEMPLAZAR CON LA URL DE TU WEBHOOK EN N8N
+        const WEBHOOK_URL = 'TU_WEBHOOK_URL_AQUI';
+
+        const form = document.getElementById('surveyForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Deshabilitar botón
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            errorMessage.style.display = 'none';
+
+            // Recopilar datos del formulario
+            const formData = new FormData(form);
+            const data = {
+                genero: formData.get('genero'),
+                edad: formData.get('edad'),
+                consume_whisky: formData.get('consume_whisky'),
+                gusto_old_parr: formData.get('gusto_old_parr'),
+                fecha: new Date().toISOString()
+            };
+
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    // Mostrar mensaje de éxito
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                } else {
+                    throw new Error('Error al enviar la respuesta');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorMessage.textContent = 'Hubo un error al enviar tu respuesta. Por favor intentá de nuevo.';
+                errorMessage.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Respuesta';
+            }
+        });
+    </script>
+</body>
+</html>
