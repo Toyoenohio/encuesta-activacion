@@ -98,6 +98,11 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
         button {
             width: 100%;
             padding: 15px;
@@ -189,6 +194,15 @@
         <div class="error-message" id="errorMessage"></div>
 
         <form id="surveyForm">
+            <div class="form-group">
+                <label>Promotora</label>
+                <select name="promotora" id="promotora" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: white; cursor: pointer; transition: border-color 0.3s ease;">
+                    <option value="" disabled selected>Seleccioná una promotora</option>
+                    <option value="Rosangela Rojas">Rosangela Rojas</option>
+                    <option value="Andrea Valentina">Andrea Valentina</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label>Género</label>
                 <div class="radio-group">
@@ -293,6 +307,7 @@
             // Recopilar datos del formulario
             const formData = new FormData(form);
             const data = {
+                promotora: formData.get('promotora'),
                 genero: formData.get('genero'),
                 edad: formData.get('edad'),
                 consume_whisky: formData.get('consume_whisky'),
